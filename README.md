@@ -364,7 +364,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [@FarokStyle](https://twitter.com/FarokStyle) - email
+Christian Andrés Bacho - [@FarokStyle](https://twitter.com/FarokStyle) - christian.andres.1204@gmail.com
 
 Project Link: [https://github.com/Chris-Kode/myanimelist-api-v2](https://github.com/Chris-Kode/myanimelist-api-v2)
 
