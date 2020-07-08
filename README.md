@@ -337,7 +337,7 @@ Params:
 
 ## Roadmap
 
-See the [open issues](https://github.com/Chris-Kode/myanimelist-api-v2/projects) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/Chris-Kode/myanimelist-api-v2/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
