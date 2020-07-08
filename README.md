@@ -56,17 +56,17 @@
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
 - [Usage](#usage)
-    - [Initial stepts before use the API](#initial-stepts-before-use-the-api)
-    - [API_ANIME](#api_anime)
-        - [animes](#animes)
-        - [anime](#anime)
-        - [animeRanking](#animeranking)
-        - [animeSeasonal](#animeseasonal)
-        - [animeSuggestions](#animesuggestions)
-    - [API_MANGA](#api_manga)
-        - [mangas](#mangas)
-        - [manga](#manga)
-        - [mangaRanking](#mangaranking)
+  - [Initial stepts before use the API](#initial-stepts-before-use-the-api)
+  - [API_ANIME](#api_anime)
+    - [animes](#animes)
+    - [anime](#anime)
+    - [animeRanking](#animeranking)
+    - [animeSeasonal](#animeseasonal)
+    - [animeSuggestions](#animesuggestions)
+  - [API_MANGA](#api_manga)
+    - [mangas](#mangas)
+    - [manga](#manga)
+    - [mangaRanking](#mangaranking)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
@@ -107,7 +107,8 @@ This new API use PCKE for Oauth2 you can use this library to generate PCKE Chall
 ### Initial stepts before use the API
 
 1.  To redirect to the url for authorize
-    ``
+
+    ```javascript
     const API = require("@chris-kode/myanimelist-api-v2");
 
     const oauth = new API.OAUTH(CLIENT_ID);
@@ -120,13 +121,14 @@ This new API use PCKE for Oauth2 you can use this library to generate PCKE Chall
 
     //This example is for expressjs, but you only need to do a redirection to the url generated
     res.redirect(urlToRedirect);
-    ``
+    ```
 
     When the user authorize you, the user will be redirected again to the url that you filled at the information of the application, with a param "code", you are going to save this code in a database or something.
 
 2.  Then when we have this code, we will need to create a session or a Access Token like this:
-    `
-    const API = require("@chris-kode/myanimelist-api-v2");  
+
+    ```javascript
+    const API = require("@chris-kode/myanimelist-api-v2");
      const oauth = new API.OAUTH(CLIENT_ID);
 
     //get the code that mal give us, and the code_challengue which we have generated before.
@@ -134,21 +136,22 @@ This new API use PCKE for Oauth2 you can use this library to generate PCKE Chall
     //PERFECT
     //save all the response at db or something, u will get something like this:
     {
-    token_type: 'Bearer',
-    expires_in: 2678400,
-    access_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY4MWExNTIzYzBkZjI0MWNmNDlmZTg1Y2Y2MmQ5ZWU2ZDNjNDJlMGQ3ODIzN2I4ZjQ1NjkzMjUxZDdlYzhjZjIyYTVmNzdjZGY3MmJkMTkyIn0.e...,
-    refresh_token: 'def502009f00fd0d08d50a7faca228bb4f88fa61df80e70aab290d6431115a16b44dc3e9215b3489a71caf9d594b8803129b6497619928025a420f107efd4560b45eb4e136bc4d0d72...'
+        token_type: 'Bearer',
+        expires_in: 2678400,
+        access_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY4MWExNTIzYzBkZjI0MWNmNDlmZTg1Y2Y2MmQ5ZWU2ZDNjNDJlMGQ3ODIzN2I4ZjQ1NjkzMjUxZDdlYzhjZjIyYTVmNzdjZGY3MmJkMTkyIn0.e...,
+        refresh_token: 'def502009f00fd0d08d50a7faca228bb4f88fa61df80e70aab290d6431115a16b44dc3e9215b3489a71caf9d594b8803129b6497619928025a420f107efd4560b45eb4e136bc4d0d72...'
     }
+
     }).catch(err => {
     //ERROR
     //do something
     }));
-
-        `
+    ```
 
 3.  If the session is expired, you are going to need to refresh:
-    `
-    const API = require("@chris-kode/myanimelist-api-v2");  
+
+    ```javascript
+    const API = require("@chris-kode/myanimelist-api-v2");
      const oauth = new API.OAUTH(CLIENT_ID);
 
     //REFRESH TOKEN that we generated before, when we create a Access Token
@@ -165,19 +168,19 @@ This new API use PCKE for Oauth2 you can use this library to generate PCKE Chall
     //ERROR
     //do something
     }));
-    `
+    ```
 
 ### API_ANIME
 
 Initialize object
-`
+
+```javascript
 //BEARER_TOKEN (ONLY THE TOKEN) = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY4MWExNTIzYzBkZjI0MWNmNDlmZTg1Y2Y2MmQ5ZWU2ZDNjNDJlMGQ3ODIzN2I4ZjQ1NjkzMjUxZDdlYzhjZjIyYTVmNzdjZGY3MmJkMTkyIn0.ey...
-
-    const anime = new API.API_ANIME(BEARER_TOKEN)
-
-`
+const anime = new API.API_ANIME(BEARER_TOKEN);
+```
 
 #### animes
+
 (List of animes via a query text search)
 
 Params:
@@ -186,25 +189,29 @@ Params:
 - offset => default = 0
 - limit => default = 100
   Example:
-  `
+
+  ```javascript
   //Simple query
   anime.animes("one piece");
 
-      //Third page of one piece results, 50 limit, 100-150,
-      anime.animes("one piece", 150, 50);
-
-  `
+  //Third page of one piece results, 50 limit, 100-150,
+  anime.animes("one piece", 150, 50);
+  ```
 
 #### anime
+
 (Specific anime by id, and return the anime with all details)
 
 Params:
 
 - id => number
   Example:
-  `anime.anime(21);`
+  ```javascript
+  anime.anime(21);
+  ```
 
 #### animeRanking
+
 (Ranking animes, with all type of rankings)
 
 Params:
@@ -214,15 +221,17 @@ Params:
 - limit => default = 100
 
   Example:
-  `
+
+  ```javascript
   //Get all the ranking where is now airing
   anime.animeRanking("airing");
 
   //Third page of ranking results, 50 limit, 100-150,
   anime.animeRanking("all", 150, 50);
-  `
+  ```
 
 #### animeSeasonal
+
 (Seasonal Anime, by default is filled at actual season)
 
 Params:
@@ -234,7 +243,8 @@ Params:
 - sort => OPTIONS ["anime_score" | "anime_num_list_users" | ""], default => ""
 
   Example:
-  `
+
+  ```javascript
   //Get all the current anime season
   anime.animeSeasonal();
 
@@ -243,9 +253,10 @@ Params:
 
   //Get the animes season of spring 2015, third page ordered by anime_score
   anime.animeSeasonal(2015, "spring", 150, 50, "anime_score");
-  `
+  ```
 
 #### animeSuggestions
+
 (Anime suggestion from MAL)
 
 Params:
@@ -254,20 +265,26 @@ Params:
 - limit => default = 100
 
   Example:
-  `//Get the anime suggestion from MAL
-  anime.animeSuggestions();`
+
+  ```javascript
+  //Get the anime suggestion from MAL
+  anime.animeSuggestions();
+  ```
 
 <!-- ROADMAP -->
 
 ### API_MANGA
-Initialize object
-`
-/*BEARER_TOKEN (ONLY THE TOKEN) = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY4MWExNTIzYzBkZjI0MWNmNDlmZTg1Y2Y2MmQ5ZWU2ZDNjNDJlMGQ3ODIzN2I4ZjQ1NjkzMjUxZDdlYzhjZjIyYTVmNzdjZGY3MmJkMTkyIn0.ey...
-*/
-    const manga = new API.API_MANGA(BEARER_TOKEN)
 
-`
+Initialize object
+
+```javascript
+/*BEARER_TOKEN (ONLY THE TOKEN) = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY4MWExNTIzYzBkZjI0MWNmNDlmZTg1Y2Y2MmQ5ZWU2ZDNjNDJlMGQ3ODIzN2I4ZjQ1NjkzMjUxZDdlYzhjZjIyYTVmNzdjZGY3MmJkMTkyIn0.ey...
+ */
+const manga = new API.API_MANGA(BEARER_TOKEN);
+```
+
 #### mangas
+
 (List of mangas via a query text search)
 Params:
 
@@ -276,25 +293,31 @@ Params:
 - limit => default = 100
 
   Example:
-  `
+
+  ```javascript
   //Simple query
   manga.mangas("one piece");
-  
+
   //Third page of one piece results, 50 limit, 100-150,
   manga.mangas("one piece", 150, 50);
-  `
+  ```
+
 #### manga
+
 (Specific manga by id, and return the manga with all details)
 Params:
 
 - id => number
 
   Example:
-  `
+
+  ```javascript
   //Simple query
   manga.manga(13);
-  `
+  ```
+
 #### mangaRanking
+
 (Ranking mangas, with all type of rankings)
 Params:
 
@@ -303,13 +326,14 @@ Params:
 - limit => default = 100
 
   Example:
-  `
+
+  ```javascript
   //Get all the ranking where are mangas
   manga.mangaRanking("manga");
 
   //Third page of ranking results, 50 limit, 100-150,
   anime.mangaRanking("all", 150, 50);
-  `
+  ```
 
 ## Roadmap
 
