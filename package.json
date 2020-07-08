@@ -1,6 +1,6 @@
 {
   "name": "@chris-kode/myanimelist-api-v2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An awesome library to connect with the new Mal's API v2!",
   "main": "index.js",
   "repository": {

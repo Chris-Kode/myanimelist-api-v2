@@ -51,6 +51,7 @@
   - [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
+  - [Install](#install)
 - [Usage](#usage)
   - [Initial stepts before use the API](#initial-stepts-before-use-the-api)
   - [API_ANIME](#api_anime)
@@ -95,6 +96,11 @@ The library is made to be as light as possible.
 3. App Redirect Url: In this field we must put the url to which it will be redirected after the user authorizes the use of his account in our application (can be localhost for test purpose)
 
 <!-- USAGE EXAMPLES -->
+
+## Install
+
+Install the package to your project
+`npm i @chris-kode/myanimelist-api-v2`
 
 ## Usage
 
