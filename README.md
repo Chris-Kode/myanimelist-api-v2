@@ -286,6 +286,7 @@ const manga = new API.API_MANGA(BEARER_TOKEN);
 #### mangas
 
 (List of mangas via a query text search)
+
 Params:
 
 - q => text to search (required)
@@ -305,6 +306,7 @@ Params:
 #### manga
 
 (Specific manga by id, and return the manga with all details)
+
 Params:
 
 - id => number
@@ -319,6 +321,7 @@ Params:
 #### mangaRanking
 
 (Ranking mangas, with all type of rankings)
+
 Params:
 
 - ranking_type => OPTIONS => ["all" | "manga" | "novels" | "oneshots" | "doujin" | "manhwa" | "manhua" | "bypopularity" | "favorite"], default => "all"
