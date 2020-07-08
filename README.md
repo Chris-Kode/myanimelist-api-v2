@@ -129,45 +129,48 @@ This new API use PCKE for Oauth2 you can use this library to generate PCKE Chall
 
     ```javascript
     const API = require("@chris-kode/myanimelist-api-v2");
-     const oauth = new API.OAUTH(CLIENT_ID);
+    const oauth = new API.OAUTH(CLIENT_ID);
 
     //get the code that mal give us, and the code_challengue which we have generated before.
-    oauth.accessToken(CODE, CODE_CHALLENGE).then((response => {
-    //PERFECT
-    //save all the response at db or something, u will get something like this:
-    {
-        token_type: 'Bearer',
-        expires_in: 2678400,
-        access_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY4MWExNTIzYzBkZjI0MWNmNDlmZTg1Y2Y2MmQ5ZWU2ZDNjNDJlMGQ3ODIzN2I4ZjQ1NjkzMjUxZDdlYzhjZjIyYTVmNzdjZGY3MmJkMTkyIn0.e...,
-        refresh_token: 'def502009f00fd0d08d50a7faca228bb4f88fa61df80e70aab290d6431115a16b44dc3e9215b3489a71caf9d594b8803129b6497619928025a420f107efd4560b45eb4e136bc4d0d72...'
-    }
-
-    }).catch(err => {
-    //ERROR
-    //do something
-    }));
+    oauth.accessToken(CODE, CODE_CHALLENGE).then(
+      ((response) => {
+        //PERFECT
+        //save all the response at db or something, u will get something like this:
+        /*{
+            token_type: 'Bearer',
+            expires_in: 2678400,
+            access_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY4MWExNTIzYzBkZjI0MWNmNDlmZTg1Y2Y2MmQ5ZWU2ZDNjNDJlMGQ3ODIzN2I4ZjQ1NjkzMjUxZDdlYzhjZjIyYTVmNzdjZGY3MmJkMTkyIn0.e...,
+            refresh_token: 'def502009f00fd0d08d50a7faca228bb4f88fa61df80e70aab290d6431115a16b44dc3e9215b3489a71caf9d594b8803129b6497619928025a420f107efd4560b45eb4e136bc4d0d72...'
+        }*/
+      }).catch((err) => {
+        //ERROR
+        //do something
+      })
+    );
     ```
 
 3.  If the session is expired, you are going to need to refresh:
 
     ```javascript
     const API = require("@chris-kode/myanimelist-api-v2");
-     const oauth = new API.OAUTH(CLIENT_ID);
+    const oauth = new API.OAUTH(CLIENT_ID);
 
     //REFRESH TOKEN that we generated before, when we create a Access Token
-    oauth.refreshToken(REFRESH_TOKEN).then((response => {
-    //PERFECT
-    //save all the response at db or something, u will get something like this:
-    {
-    token_type: 'Bearer',
-    expires_in: 2678400,
-    access_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY4MWExNTIzYzBkZjI0MWNmNDlmZTg1Y2Y2MmQ5ZWU2ZDNjNDJlMGQ3ODIzN2I4ZjQ1NjkzMjUxZDdlYzhjZjIyYTVmNzdjZGY3MmJkMTkyIn0.e...,
-    refresh_token: 'def502009f00fd0d08d50a7faca228bb4f88fa61df80e70aab290d6431115a16b44dc3e9215b3489a71caf9d594b8803129b6497619928025a420f107efd4560b45eb4e136bc4d0d72...'
-    }
-    }).catch(err => {
-    //ERROR
-    //do something
-    }));
+    oauth.refreshToken(REFRESH_TOKEN).then(
+      ((response) => {
+        //PERFECT
+        //save all the response at db or something, u will get something like this:
+        /*{
+            token_type: 'Bearer',
+            expires_in: 2678400,
+            access_token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY4MWExNTIzYzBkZjI0MWNmNDlmZTg1Y2Y2MmQ5ZWU2ZDNjNDJlMGQ3ODIzN2I4ZjQ1NjkzMjUxZDdlYzhjZjIyYTVmNzdjZGY3MmJkMTkyIn0.e...,
+            refresh_token: 'def502009f00fd0d08d50a7faca228bb4f88fa61df80e70aab290d6431115a16b44dc3e9215b3489a71caf9d594b8803129b6497619928025a420f107efd4560b45eb4e136bc4d0d72...'
+        }*/
+      }).catch((err) => {
+        //ERROR
+        //do something
+      })
+    );
     ```
 
 ### API_ANIME

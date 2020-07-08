@@ -1,11 +1,8 @@
 {
   "name": "@chris-kode/myanimelist-api-v2",
   "version": "1.0.0",
-  "description": "",
+  "description": "An awesome library to connect with the new Mal's API v2!",
   "main": "index.js",
-  "scripts": {
-    "test": "test.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Chris-Kode/myanimelist-api-v2.git"
