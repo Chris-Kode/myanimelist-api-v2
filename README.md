@@ -99,9 +99,6 @@ The library is made to be as light as possible.
 2. Client_id and Client_Secret (if you need it) must not be disclosed.
 3. App Redirect Url: In this field we must put the url to which it will be redirected after the user authorizes the use of his account in our application (can be localhost for test purpose)
 
-### Installation
-
-1. npm
 <!-- USAGE EXAMPLES -->
 
 ## Usage
@@ -111,7 +108,7 @@ This new API use PCKE for Oauth2 you can use this library to generate PCKE Chall
 ### Initial stepts before use the API
 
 1.  To redirect to the url for authorize
-    `
+    ``
     const API = require("@chris-kode/myanimelist-api-v2");
 
     const oauth = new API.OAUTH(CLIENT_ID);
@@ -124,7 +121,7 @@ This new API use PCKE for Oauth2 you can use this library to generate PCKE Chall
 
     //This example is for expressjs, but you only need to do a redirection to the url generated
     res.redirect(urlToRedirect);
-    `
+    ``
 
     When the user authorize you, the user will be redirected again to the url that you filled at the information of the application, with a param "code", you are going to save this code in a database or something.
 
