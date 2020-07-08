@@ -55,7 +55,6 @@
   - [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
 - [Usage](#usage)
     - [Initial stepts before use the API](#initial-stepts-before-use-the-api)
     - [API_ANIME](#api_anime)
