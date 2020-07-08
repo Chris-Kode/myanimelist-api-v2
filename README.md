@@ -94,7 +94,7 @@ The library is made to be as light as possible.
 
 1. You are going to need register your application first for the use of this API, so you can register here [https://myanimelist.net/apiconfig/create](https://myanimelist.net/apiconfig/create)
    You will get a result like this:
-   ![ExampleFill](document/ExampleFill.png)
+   ![ExampleFill](document/ExampleFill.PNG)
 
 2. Client_id and Client_Secret (if you need it) must not be disclosed.
 3. App Redirect Url: In this field we must put the url to which it will be redirected after the user authorizes the use of his account in our application (can be localhost for test purpose)
