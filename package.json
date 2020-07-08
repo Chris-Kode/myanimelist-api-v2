@@ -1,0 +1,28 @@
+{
+  "name": "@chris-kode/myanimelist-api-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chris-Kode/myanimelist-api-v2.git"
+  },
+  "keywords": [
+    "anime",
+    "myanimelist",
+    "api",
+    "v2"
+  ],
+  "author": "Christian Andrés Bacho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chris-Kode/myanimelist-api-v2/issues"
+  },
+  "homepage": "https://github.com/Chris-Kode/myanimelist-api-v2#readme",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
