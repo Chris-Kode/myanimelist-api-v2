@@ -50,10 +50,15 @@
 - [About the Project](#about-the-project)
   - [Built With](#built-with)
 - [Getting Started](#getting-started)
+  - [TODO](#todo)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
 - [Usage](#usage)
   - [Initial stepts before use the API](#initial-stepts-before-use-the-api)
+  - [OAUTH](#oauth)
+    - [urlAuthorize](#urlauthorize)
+    - [accessToken](#accesstoken)
+    - [refreshToken](#refreshtoken)
   - [API_ANIME](#api_anime)
     - [animes](#animes)
     - [anime](#anime)
@@ -64,6 +69,8 @@
     - [mangas](#mangas)
     - [manga](#manga)
     - [mangaRanking](#mangaranking)
+  - [API_USER](#api_user)
+    - [me](#me)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
@@ -85,6 +92,37 @@ The library is made to be as light as possible.
 <!-- GETTING STARTED -->
 
 ## Getting Started
+
+### TODO
+
+- API_OAUTH
+  - [x] Access Token
+  - [x] Refresh Token
+  - [x] Generate url OAUTH2 for MyAnimeList
+- API_ANIME
+  - [x] Return all fields by default
+  - [x] Search Anime by Id
+  - [x] Seach Anime by a query text
+  - [x] Anime by season
+  - [x] Anime ranking
+  - [x] Anime suggestions
+  - [x] Return anime with custom fields by parameter
+- API_MANGA
+  - [x] Search Manga by Id
+  - [x] Seach Manga by a query text
+  - [x] Manga ranking
+  - [] Return all fields by default
+  - [] Return manga with custom fields by parameter
+- API_USER
+  - [x] Return user's profile current session
+  - [] Return all fields by default
+  - [] Return user with custom fields by parameter
+- API_ANIME_LIST
+  - [] TODO
+- API_MANGA_LIST
+  - [] TODO
+- API_FORUM
+  - [] TODO
 
 ### Prerequisites
 
@@ -174,6 +212,71 @@ This new API use PCKE for Oauth2 you can use this library to generate PCKE Chall
       })
     );
     ```
+
+### OAUTH
+
+Initialize object
+
+```javascript
+//Client_Id as first parameter, and optional Cliente Secret if is need it.
+const oauth = new API.OAUTH(CLIENT_ID, CLIENT_SECRET);
+```
+
+#### urlAuthorize
+
+Function that return the url that we need to redirect for the user to authorize our application, we need a pcke code challenge, you can generate with this library: [pkce-challenge](https://www.npmjs.com/package/pkce-challenge)
+
+Params:
+
+- code_challenge => Generated code_challenge
+
+```javascript
+//first parameter we need a code_challenge
+res.redirect(oauth.urlAuthorize(pcke.code_challenge));
+```
+
+#### accessToken
+
+Function that generates a Bearer and Refresh Token, we will need to generate a session and makes petition to the API
+
+Params:
+
+- code => code that we get when our user has authorized us at the callback url
+- code_challenge => the code_generated before, the same code_challenge that we generated before.
+
+```javascript
+oauth
+  .accessToken(CODE, CODE_CHALLENGE)
+  .then((response) => {
+    //ALL OK
+    //DO SOMETHING
+  })
+  .catch((err) => {
+    //ALL BAD
+    //DO SOMETHING
+  });
+```
+
+#### refreshToken
+
+Function that refresh the token that we got in "accessToken", if our token expired u can refresh with this function
+
+Params:
+
+- REFRESH_TOKEN => token that we got, in the step "accesstoken".
+
+```javascript
+oauth
+  .refreshToken(REFRESH_TOKEN)
+  .then((response) => {
+    //ALL OK
+    //DO SOMETHING
+  })
+  .catch((err) => {
+    //ALL BAD
+    //DO SOMETHING
+  });
+```
 
 ### API_ANIME
 
@@ -353,6 +456,24 @@ Params:
   //Third page of ranking results, 50 limit, 100-150,
   anime.mangaRanking("all", 150, 50);
   ```
+
+### API_USER
+
+Initialize object
+
+```javascript
+/*BEARER_TOKEN (ONLY THE TOKEN) = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY4MWExNTIzYzBkZjI0MWNmNDlmZTg1Y2Y2MmQ5ZWU2ZDNjNDJlMGQ3ODIzN2I4ZjQ1NjkzMjUxZDdlYzhjZjIyYTVmNzdjZGY3MmJkMTkyIn0.ey...
+ */
+const user = new API.API_USER(BEARER_TOKEN);
+```
+
+#### me
+
+(Displays User information with current session)
+
+```javascript
+user.me();
+```
 
 ## Roadmap
 
