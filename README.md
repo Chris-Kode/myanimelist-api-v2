@@ -111,18 +111,18 @@ The library is made to be as light as possible.
   - [x] Search Manga by Id
   - [x] Seach Manga by a query text
   - [x] Manga ranking
-  - [] Return all fields by default
-  - [] Return manga with custom fields by parameter
+  - [ ] Return all fields by default
+  - [ ] Return manga with custom fields by parameter
 - API_USER
   - [x] Return user's profile current session
-  - [] Return all fields by default
-  - [] Return user with custom fields by parameter
+  - [ ] Return all fields by default
+  - [ ] Return user with custom fields by parameter
 - API_ANIME_LIST
-  - [] TODO
+  - [ ] TODO
 - API_MANGA_LIST
-  - [] TODO
+  - [ ] TODO
 - API_FORUM
-  - [] TODO
+  - [ ] TODO
 
 ### Prerequisites
 

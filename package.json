@@ -1,7 +1,7 @@
 {
   "name": "@chris-kode/myanimelist-api-v2",
-  "version": "1.0.2",
-  "description": "An awesome library to connect with the new Mal's API v2!",
+  "version": "1.0.3",
+  "description": "An awesome wrapper on Nodejs for the new MyAnimeList's API v2!",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -10,6 +10,8 @@
   "keywords": [
     "anime",
     "myanimelist",
+    "myanimelist.net",
+    "api anime",
     "api",
     "v2"
   ],
