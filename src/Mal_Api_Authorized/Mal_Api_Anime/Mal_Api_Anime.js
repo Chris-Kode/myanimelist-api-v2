@@ -1,5 +1,6 @@
-const MAL_API = require("./baseClass/Mal_Api");
-const MAL_API_UTILS_ANIME = require("../Helpers/Mal_Api_Utils_Anime");
+const MAL_API = require("../baseClass/Mal_Api");
+const MAL_API_UTILS_ANIME = require("../../Helpers/Mal_Api_Utils_Anime");
+const structures = require("./structures.json");
 
 module.exports = class MAL_API_ANIME extends MAL_API {
   utils = new MAL_API_UTILS_ANIME();
@@ -13,8 +14,9 @@ module.exports = class MAL_API_ANIME extends MAL_API {
    * @param  {String} q
    * @param  {Number} offset=0
    * @param  {Number} limit=100
+   * @param {Array} fields=structures.animeInList
    */
-  animes(q, offset = 0, limit = 100) {
+  animes(q, offset = 0, limit = 100, fields = structures.animeInList) {
     return new Promise((resolve, reject) => {
       this.http
         .get("/anime", {
@@ -22,6 +24,7 @@ module.exports = class MAL_API_ANIME extends MAL_API {
             q,
             limit,
             offset,
+            fields: fields.toString(),
           },
         })
         .then((response) => {
@@ -36,11 +39,16 @@ module.exports = class MAL_API_ANIME extends MAL_API {
   /**
    * Specific anime by id, and return the anime with all details
    * @param  {Number} id
+   * @param {Array} fields=structures.animeFull
    */
-  anime(id) {
+  anime(id, fields = structures.animeFull) {
     return new Promise((resolve, reject) => {
       this.http
-        .get(`/anime/${id}`)
+        .get(`/anime/${id}`, {
+          params: {
+            fields: fields.toString(),
+          },
+        })
         .then((response) => {
           resolve(response.data);
         })
@@ -55,8 +63,14 @@ module.exports = class MAL_API_ANIME extends MAL_API {
    * @param  {String =>  "all" | "airing" | "upcoming" | "tv" | "ova" | "movie" | "special" | "bypopularity" | "favorite"} ranking_type="all"
    * @param  {Number} offset=0
    * @param  {Number} limit=100
+   * @param {Array} fields=structures.animeInList
    */
-  animeRanking(ranking_type = "all", offset = 0, limit = 100) {
+  animeRanking(
+    ranking_type = "all",
+    offset = 0,
+    limit = 100,
+    fields = structures.animeInList
+  ) {
     return new Promise((resolve, reject) => {
       this.http
         .get("/anime/ranking", {
@@ -64,6 +78,7 @@ module.exports = class MAL_API_ANIME extends MAL_API {
             ranking_type,
             limit,
             offset,
+            fields: fields.toString(),
           },
         })
         .then((response) => {
@@ -82,13 +97,15 @@ module.exports = class MAL_API_ANIME extends MAL_API {
    * @param  {Number} offset=0
    * @param  {Number} limit=100
    * @param  {String => "anime_score" | "anime_num_list_users"} sort=""
+   * @param {Array} fields=structures.animeInList
    */
   animeSeasonal(
     year = new Date().getFullYear(),
     season = this.utils.getSeasonForNumberMonth(new Date().getMonth()),
     offset = 0,
     limit = 100,
-    sort = ""
+    sort = "",
+    fields = structures.animeInList
   ) {
     return new Promise((resolve, reject) => {
       if (this.utils.checkIfMonthIsValid(season)) {
@@ -98,6 +115,7 @@ module.exports = class MAL_API_ANIME extends MAL_API {
               sort,
               limit,
               offset,
+              fields: fields.toString(),
             },
           })
           .then((response) => {
@@ -116,14 +134,16 @@ module.exports = class MAL_API_ANIME extends MAL_API {
    * Anime suggestion from MAL
    * @param  {Number} offset=0
    * @param  {Number} limit=100
+   * @param {Array} fields=structures.animeInList
    */
-  animeSuggestions(offset = 0, limit = 100) {
+  animeSuggestions(offset = 0, limit = 100, fields = structures.animeInList) {
     return new Promise((resolve, reject) => {
       this.http
         .get("/anime/suggestions", {
           params: {
             limit,
             offset,
+            fields: fields.toString(),
           },
         })
         .then((response) => {

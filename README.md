@@ -184,6 +184,9 @@ Initialize object
 const anime = new API.API_ANIME(BEARER_TOKEN);
 ```
 
+Structures
+[structures.animeInList](src/Mal_Api_Authorized/Mal_Api_Anime/structures.json)
+
 #### animes
 
 (List of animes via a query text search)
@@ -193,6 +196,8 @@ Params:
 - q => text to search (required)
 - offset => default = 0
 - limit => default = 100
+- fields (Array) => fields to show, default = [structures.animeInList](src/Mal_Api_Authorized/Mal_Api_Anime/structures.json)
+
   Example:
 
   ```javascript
@@ -210,7 +215,10 @@ Params:
 Params:
 
 - id => number
+- fields (Array) => fields to show, default = [structures.animeFull](src/Mal_Api_Authorized/Mal_Api_Anime/structures.json)
+
   Example:
+
   ```javascript
   anime.anime(21);
   ```
@@ -224,6 +232,7 @@ Params:
 - ranking_type => OPTIONS ["all" | "airing" | "upcoming" | "tv" | "ova" | "movie" | "special" | "bypopularity" | "favorite"] default = "all"
 - offset => default = 0
 - limit => default = 100
+- fields (Array) => fields to show, default = [structures.animeInList](src/Mal_Api_Authorized/Mal_Api_Anime/structures.json)
 
   Example:
 
@@ -246,6 +255,7 @@ Params:
 - offset => default = 0
 - limit => default = 100
 - sort => OPTIONS ["anime_score" | "anime_num_list_users" | ""], default => ""
+- fields (Array) => fields to show, default = [structures.animeInList](src/Mal_Api_Authorized/Mal_Api_Anime/structures.json)
 
   Example:
 
@@ -268,6 +278,7 @@ Params:
 
 - offset => default = 0
 - limit => default = 100
+- fields (Array) => fields to show, default = [structures.animeInList](src/Mal_Api_Authorized/Mal_Api_Anime/structures.json)
 
   Example:
 

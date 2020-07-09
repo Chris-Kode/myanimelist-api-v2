@@ -1,6 +1,6 @@
 {
   "name": "@chris-kode/myanimelist-api-v2",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An awesome library to connect with the new Mal's API v2!",
   "main": "index.js",
   "repository": {
@@ -14,7 +14,7 @@
     "v2"
   ],
   "author": "Christian Andrés Bacho",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Chris-Kode/myanimelist-api-v2/issues"
   },
