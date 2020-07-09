@@ -32,7 +32,7 @@
   <h3 align="center">MyAnimeList - API V2</h3>
 
   <p align="center">
-    An awesome library to connect with the new Mal's API v2!
+    An awesome library to connect with the new MyAnimeList's API v2!
     <br />
     <a href="https://github.com/Chris-Kode/myanimelist-api-v2"><strong>Explore the docs »</strong></a>
     <br />
