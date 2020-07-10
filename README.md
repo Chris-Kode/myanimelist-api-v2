@@ -22,6 +22,7 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
+[![NPM][npm-downloads]][npm-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
@@ -520,3 +521,5 @@ Project Link: [https://github.com/Chris-Kode/myanimelist-api-v2](https://github.
 [license-url]: https://github.com/Chris-Kode/myanimelist-api-v2/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/christian-andr%C3%A9s-bacho-a5abb016b/
+[npm-url]: https://www.npmjs.com/package/@chris-kode/myanimelist-api-v2
+[npm-downloads]: https://img.shields.io/npm/dt/@chris-kode/myanimelist-api-v2.svg
