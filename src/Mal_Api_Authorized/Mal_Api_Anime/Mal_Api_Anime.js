@@ -96,7 +96,7 @@ module.exports = class MAL_API_ANIME extends MAL_API {
    * @param  {String => "winter" | "spring" | "summer" | "fall"} season=currentSeason
    * @param  {Number} offset=0
    * @param  {Number} limit=100
-   * @param  {String => "anime_score" | "anime_num_list_users"} sort=""
+   * @param  {String => "anime_score" | "anime_num_list_users" | ""} sort=""
    * @param {Array} fields=structures.animeInList
    */
   animeSeasonal(
