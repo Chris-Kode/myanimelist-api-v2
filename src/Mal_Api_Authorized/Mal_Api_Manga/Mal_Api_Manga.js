@@ -1,4 +1,4 @@
-const MAL_API = require("./baseClass/Mal_Api");
+const MAL_API = require("../baseClass/Mal_Api");
 
 module.exports = class MAL_API_MANGA extends MAL_API {
   constructor(token) {
@@ -10,7 +10,7 @@ module.exports = class MAL_API_MANGA extends MAL_API {
    * @param  {Number} offset=0
    * @param  {Number} limit=100
    */
-  mangas(q, offset = 0, limit = 100, ) {
+  mangas(q, offset = 0, limit = 100) {
     return new Promise((resolve, reject) => {
       this.http
         .get("/manga", {
