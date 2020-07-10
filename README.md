@@ -112,8 +112,8 @@ The library is made to be as light as possible.
   - [x] Search Manga by Id
   - [x] Seach Manga by a query text
   - [x] Manga ranking
-  - [ ] Return all fields by default
-  - [ ] Return manga with custom fields by parameter
+  - [x] Return all fields by default
+  - [x] Return manga with custom fields by parameter
 - API_USER
   - [x] Return user's profile current session
   - [ ] Return all fields by default
@@ -412,6 +412,7 @@ Params:
 - q => text to search (required)
 - offset => default = 0
 - limit => default = 100
+- fields (Array) => default = [structures.mangaInList](src/Mal_Api_Authorized/Mal_Api_Manga/structures.json)
 
   Example:
 
@@ -430,6 +431,7 @@ Params:
 Params:
 
 - id => number
+- fields (Array) => default = [structures.mangaFull](src/Mal_Api_Authorized/Mal_Api_Manga/structures.json)
 
   Example:
 
@@ -447,6 +449,7 @@ Params:
 - ranking_type => OPTIONS => ["all" | "manga" | "novels" | "oneshots" | "doujin" | "manhwa" | "manhua" | "bypopularity" | "favorite"], default => "all"
 - offset => default = 0
 - limit => default = 100
+- fields (Array) => default = [structures.mangaInList](src/Mal_Api_Authorized/Mal_Api_Manga/structures.json)
 
   Example:
 
