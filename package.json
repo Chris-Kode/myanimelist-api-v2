@@ -1,6 +1,6 @@
 {
   "name": "@chris-kode/myanimelist-api-v2",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "An awesome wrapper on Nodejs for the new MyAnimeList's API v2!",
   "main": "index.js",
   "repository": {
@@ -8,6 +8,7 @@
     "url": "git+https://github.com/Chris-Kode/myanimelist-api-v2.git"
   },
   "keywords": [
+    "nodejs wrapper anime",
     "anime",
     "myanimelist",
     "myanimelist.net",

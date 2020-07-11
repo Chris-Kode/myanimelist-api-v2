@@ -116,8 +116,8 @@ The library is made to be as light as possible.
   - [x] Return manga with custom fields by parameter
 - API_USER
   - [x] Return user's profile current session
-  - [ ] Return all fields by default
-  - [ ] Return user with custom fields by parameter
+  - [x] Return all fields by default
+  - [x] Return user with custom fields by parameter
 - API_ANIME_LIST
   - [ ] TODO
 - API_MANGA_LIST
@@ -474,6 +474,10 @@ const user = new API.API_USER(BEARER_TOKEN);
 #### me
 
 (Displays User information with current session)
+
+Params:
+
+- fields (Array) => default = [structures.user](src/Mal_Api_Authorized/Mal_Api_User/structures.json)
 
 ```javascript
 user.me();
