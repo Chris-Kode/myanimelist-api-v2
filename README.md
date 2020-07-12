@@ -172,8 +172,8 @@ This new API use PCKE for Oauth2 you can use this library to generate PCKE Chall
     const API = require("@chris-kode/myanimelist-api-v2");
     const oauth = new API.OAUTH(CLIENT_ID);
 
-    //get the code that mal give us, and the code_challengue which we have generated before.
-    oauth.accessToken(CODE, CODE_CHALLENGE).then(
+    //get the code that mal give us, and the code_verifier which we have generated before.
+    oauth.accessToken(CODE, CODE_verifier).then(
       ((response) => {
         //PERFECT
         //save all the response at db or something, u will get something like this:
@@ -243,11 +243,11 @@ Function that generates a Bearer and Refresh Token, we will need to generate a s
 Params:
 
 - code => code that we get when our user has authorized us at the callback url
-- code_challenge => the code_generated before, the same code_challenge that we generated before.
+- code_verifier => the code_generated before, the same code_verifier that we generated before.
 
 ```javascript
 oauth
-  .accessToken(CODE, CODE_CHALLENGE)
+  .accessToken(CODE, CODE_VERIFIER)
   .then((response) => {
     //ALL OK
     //DO SOMETHING
