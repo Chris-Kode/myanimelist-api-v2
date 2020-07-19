@@ -70,6 +70,10 @@
     - [mangas](#mangas)
     - [manga](#manga)
     - [mangaRanking](#mangaranking)
+  - [API_ANIME_LIST](#api_anime_list)
+    - [getListAnime](#getlistanime)
+    - [deleteListAnime](#deletelistanime)
+    - [updateListAnime](#updatelistanime)
   - [API_USER](#api_user)
     - [me](#me)
 - [Roadmap](#roadmap)
@@ -119,7 +123,9 @@ The library is made to be as light as possible.
   - [x] Return all fields by default
   - [x] Return user with custom fields by parameter
 - API_ANIME_LIST
-  - [ ] TODO
+  - [x] Get user's anime list
+  - [x] Delete entry anime list
+  - [x] Update entry anime list
 - API_MANGA_LIST
   - [ ] TODO
 - API_FORUM
@@ -460,6 +466,69 @@ Params:
   //Third page of ranking results, 50 limit, 100-150,
   anime.mangaRanking("all", 150, 50);
   ```
+
+### API_ANIME_LIST
+
+Initialize object
+
+```javascript
+/*BEARER_TOKEN (ONLY THE TOKEN) = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY4MWExNTIzYzBkZjI0MWNmNDlmZTg1Y2Y2MmQ5ZWU2ZDNjNDJlMGQ3ODIzN2I4ZjQ1NjkzMjUxZDdlYzhjZjIyYTVmNzdjZGY3MmJkMTkyIn0.ey...
+ */
+const anime_list = new API.API_LIST_ANIME(BEARER_TOKEN);
+```
+
+#### getListAnime
+
+(Display user anime list with current session)
+
+Params:
+
+- user_name (String) (username) => default = "@me"
+- offset (Number) => default = 0
+- limit (Number) => default = 100
+- fields (Array) => default = [structures](src/Mal_Api_Authorized/Mal_Api_List_Anime/structures.js) (This is a mix of anime structure and status structure)
+
+```javascript
+//Third page of results, 50 limit, 100-150,
+anime_list.getList("@me", 150, 50);
+```
+
+#### deleteListAnime
+
+(Delete a anime entry from the list with current session)
+
+Params:
+
+- anime_id (Number) => (anime_id that you want delete from the list)
+
+```javascript
+//Delete Boku no hero academy 3º season from my anime list.
+anime_list.deleteList(36456);
+```
+
+#### updateListAnime
+
+(Update anime entry from the list with current session)
+
+Params:
+
+- anime_id (Number) => (anime_id that you want update from the list)
+- fieldsToUdpate (Object)(All the fields are optional) => {
+  status: "watching" | "completed" | "on_hold" | "dropped" | "plan_to_watch",
+  is_rewatching: true | false,
+  score: 0-10,
+  num_watched_episodes: Number,
+  priority: 0-2,
+  num_times_rewatched: Number,
+  rewatch_value: 0-5,
+  tags: String,
+  comments: String
+  }
+
+```javascript
+//Update Boku no hero 3 entry with status completed and score 9
+anime_list.updateList(36456, { status: "completed", score: 9 });
+```
 
 ### API_USER
 
