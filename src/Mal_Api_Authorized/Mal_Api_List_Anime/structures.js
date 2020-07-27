@@ -1,7 +1,6 @@
 const structuresAnime = require("../Mal_Api_Anime/structures.json");
 
 const structuresList = [
-  "list_status",
   "status",
   "score",
   "num_watched_episodes",

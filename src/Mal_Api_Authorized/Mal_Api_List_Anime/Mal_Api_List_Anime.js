@@ -10,7 +10,7 @@ module.exports = class MAL_API_LIST_ANIME extends MAL_API {
   /**
    * Get list anime from a user, default its "@me"
    * @param  {String} user_name="@me"
-   * @param  {Numbber} offset=0
+   * @param  {Number} offset=0
    * @param  {Number} limit=100
    * @param  {Array} fields=structures
    */

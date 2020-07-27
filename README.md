@@ -45,7 +45,8 @@
 </p>
 
 <!-- TABLE OF CONTENTS -->
-
+## Official documentation
+This is the official documentation from MyAnimeList, if you need to verify any field. [https://myanimelist.net/apiconfig/references/api/v2](https://myanimelist.net/apiconfig/references/api/v2)
 ## Table of Contents
 
 - [About the Project](#about-the-project)
@@ -74,6 +75,10 @@
     - [getListAnime](#getlistanime)
     - [deleteListAnime](#deletelistanime)
     - [updateListAnime](#updatelistanime)
+  - [API_MANGA_LIST](#api_manga_list)
+    - [getListManga](#getlistmanga)
+    - [deleteListManga](#deletelistmanga)
+    - [updateListManga](#updatelistmanga)
   - [API_USER](#api_user)
     - [me](#me)
 - [Roadmap](#roadmap)
@@ -127,7 +132,9 @@ The library is made to be as light as possible.
   - [x] Delete entry anime list
   - [x] Update entry anime list
 - API_MANGA_LIST
-  - [ ] TODO
+  - [x] Get user's manga list
+  - [x] Delete entry manga list
+  - [x] Update entry manga list
 - API_FORUM
   - [ ] TODO
 
@@ -529,7 +536,65 @@ Params:
 //Update Boku no hero 3 entry with status completed and score 9
 anime_list.updateList(36456, { status: "completed", score: 9 });
 ```
+### API_MANGA_LIST
+Initialize object
 
+```javascript
+/*BEARER_TOKEN (ONLY THE TOKEN) = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY4MWExNTIzYzBkZjI0MWNmNDlmZTg1Y2Y2MmQ5ZWU2ZDNjNDJlMGQ3ODIzN2I4ZjQ1NjkzMjUxZDdlYzhjZjIyYTVmNzdjZGY3MmJkMTkyIn0.ey...
+ */
+const manga_list = new API.API_LIST_MANGA(BEARER_TOKEN);
+```
+#### getListManga
+
+(Display user manga list with current session)
+
+Params:
+
+- user_name (String) (username) => default = "@me"
+- offset (Number) => default = 0
+- limit (Number) => default = 100
+- fields (Array) => default = [structures](src/Mal_Api_Authorized/Mal_Api_List_Anime/structures.js) (This is a mix of manga structure and status structure)
+
+```javascript
+//Third page of results, 50 limit, 100-150,
+manga_list.getList("@me", 150, 50);
+```
+
+#### deleteListManga
+(Delete a manga entry from the list with current session)
+
+Params:
+
+- manga_id (Number) => (manga_id that you want delete from the list)
+
+```javascript
+//Delete Boku no Hero Academia from my manga list.
+manga_list.deleteList(75989);
+```
+#### updateListManga
+
+(Update manga entry from the list with current session)
+
+Params:
+
+- manga_id (Number) => (manga_id that you want update from the list)
+- fieldsToUdpate (Object)(All the fields are optional) => {
+  status: "reading" | "completed" | "on_hold" | "dropped" | "plan_to_read",
+  is_rereading: true | false,
+  score: 0-10,
+  num_volumes_read: Number,
+  num_chapters_read: Number,
+  priority: 0-2,
+  num_times_reread: Number,
+  reread_value: 0-5,
+  tags: String,
+  comments: String
+  }
+
+```javascript
+//Update Boku no hero Academia entry with status completed and score 9
+manga_list.updateList(75989, { status: "completed", score: 9 });
+```
 ### API_USER
 
 Initialize object
