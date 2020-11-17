@@ -185,7 +185,7 @@ This new API use PCKE for Oauth2 you can use this library to generate PCKE Chall
     const API = require("@chris-kode/myanimelist-api-v2");
     const oauth = new API.OAUTH(CLIENT_ID);
 
-    //get the code that mal give us, and the code_challengue which we have generated before.
+    //get the code that mal give us, and the code_challenge which we have generated before.
     oauth.accessToken(CODE, CODE_CHALLENGE).then(
       ((response) => {
         //PERFECT
