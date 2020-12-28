@@ -1,5 +1,5 @@
 module.exports = class MAL_API_UTILS_ANIME {
-  #months = ["winter", "spring", "summer", "fall"];
+  months = ["winter", "spring", "summer", "fall"];
   
   /**
    * @param  {Number => 0 -> 11} month
@@ -21,7 +21,7 @@ module.exports = class MAL_API_UTILS_ANIME {
    * @param  {String} month
    */
   checkIfMonthIsValid(month) {
-    if (this.#months.indexOf(month) != -1) {
+    if (this.months.indexOf(month) != -1) {
       return true;
     } else {
       return false;

@@ -2,9 +2,9 @@ const axios = require("axios").default;
 const querystring = require("querystring");
 
 module.exports = class MAL_OAUTH2 {
-  #urlbaseOAUTH2 = "https://myanimelist.net/v1/oauth2";
-  #urlAuthorize = `${this.#urlbaseOAUTH2}/authorize`;
-  #urlAccessToken = `${this.#urlbaseOAUTH2}/token`;
+  urlbaseOAUTH2 = "https://myanimelist.net/v1/oauth2";
+  urlAuthorize = `${this.urlbaseOAUTH2}/authorize`;
+  urlAccessToken = `${this.urlbaseOAUTH2}/token`;
 
   constructor(clientId, clientSecret = undefined) {
     this.clientId = clientId;
@@ -19,7 +19,7 @@ module.exports = class MAL_OAUTH2 {
    * @param  {String} codeChallenge
    */
   urlAuthorize(codeChallenge) {
-    return `${this.#urlAuthorize}?response_type=code&client_id=${
+    return `${this.urlAuthorize}?response_type=code&client_id=${
       this.clientId
     }&code_challenge=${codeChallenge}&code_challenge_method=plain`;
   }
@@ -39,7 +39,7 @@ module.exports = class MAL_OAUTH2 {
       };
 
       axios
-        .post(this.#urlAccessToken, querystring.stringify(query))
+        .post(this.urlAccessToken, querystring.stringify(query))
         .then((response) => {
           resolve(response.data);
         })
@@ -62,7 +62,7 @@ module.exports = class MAL_OAUTH2 {
       };
 
       axios
-        .post(this.#urlAccessToken, querystring.stringify(query))
+        .post(this.urlAccessToken, querystring.stringify(query))
         .then((response) => {
           resolve(response.data);
         })
