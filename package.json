@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/Chris-Kode/myanimelist-api-v2#readme",
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.21.1"
   }
 }
